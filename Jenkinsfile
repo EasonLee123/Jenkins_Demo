@@ -19,14 +19,12 @@ pipeline {
                  }
             }
        }
-        // stage('Pull Docker Image') {
-        //     steps {
-        //         script {
-        //             // Pull the Docker image
-        //             sh "docker pull strategy_test:1.0"
-        //         }
-        //     }
-        // }
+        stage('Checkout') {
+            steps {
+                // Clone the repository
+                git branch: 'main', url: 'https://github.com/EasonLee123/Jenkins_Demo.git'
+            }
+        }
         stage('Run Regression Test') {
             agent {
                 docker {
