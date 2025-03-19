@@ -6,11 +6,19 @@ pipeline {
         DOCKER_PASSWORD = 'EasonLee123!'
     }
     stages {
-        stage('Docker ready') {
+        stage('Start Test') {
             steps {
              sh 'echo HELLO'               
             }
         }
+        stage('Docker login') {
+             steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-credentials-id', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) 
+                 {
+                    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                 }
+            }
+       }
         stage('Run Regression Test') {
             agent {
                 docker {
