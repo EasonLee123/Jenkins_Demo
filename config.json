@@ -1,7 +1,7 @@
 {
     "docker_image_name":"strategy_test:1.0",
-    "test_case_dir": "testcases",
-    "expected_results_dir": "expected",
+    "test_case_dir": "input_file",
+    "expected_results_dir": "expected_output",
     "results_dir": "results",
     "docker_command": "docker run --rm -i {image_name}",
     "timeout": 30
