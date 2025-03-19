@@ -2,10 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Run Regression Test') {
             steps {
-                echo 'This is first Jenkins test'
-                echo 'Hello World'
+                script {
+                    sh 'python Regression_test.py'
+                }
             }
         }
     }
