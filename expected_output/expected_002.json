@@ -1,0 +1,9 @@
+{
+    "result": "success",
+    "processed_value": "processed_value1",
+    "calculation_result": 88,
+    "nested_result":{
+        "processed_key": "transformed_value1",
+        "sum_of_array":6
+    }
+}
