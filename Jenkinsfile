@@ -19,6 +19,14 @@ pipeline {
                  }
             }
        }
+        stage('Pull Docker Image') {
+            steps {
+                script {
+                    // Pull the Docker image
+                    sh "docker pull strategy_test:1.0"
+                }
+            }
+        }
         stage('Run Regression Test') {
             agent {
                 docker {
