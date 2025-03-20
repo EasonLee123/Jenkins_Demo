@@ -15,10 +15,7 @@ pipeline {
                 }
             }
             steps {
-                script {
-                    docker.image('akroneason123/strategy_test:2.0').inside('-v /var/jenkins_home/workspace') {
-                        sh 'python /var/jenkins_home/workspace/Eason_Regression_test/Regression_test.py'
-                    }
+                    sh 'python /var/jenkins_home/workspace/Eason_Regression_test/Regression_test.py'
                 }
             }
         }
