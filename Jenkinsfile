@@ -1,33 +1,25 @@
 pipeline {
     agent any
-    // environment {
-    //     docker_credentials_id = 'c9d32ed1-8ccc-4cff-9c36-057e632825e4'
-    //     DOCKER_USERNAME = 'akroneason123'
-    //     DOCKER_PASSWORD = 'EasonLee123!'
-    // }
     stages {
         stage('Start Test') {
             steps {
-             sh 'echo HELLO'               
+                sh 'echo HELLO'
             }
         }
-       //  stage('Docker login') {
-       //       steps {
-       //          withCredentials([usernamePassword(credentialsId: 'c9d32ed1-8ccc-4cff-9c36-057e632825e4', usernameVariable: 'akroneason123', passwordVariable: 'EasonLee123!')]) 
-       //           {
-       //              sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-       //           }
-       //      }
-       // }
         stage('Run Regression Test') {
             agent {
                 docker {
                     image 'akroneason123/strategy_test:2.0'
+                    args '-v /var/jenkins_home/workspace:/var/jenkins_home/workspace/Eason_Regression_test'
                     reuseNode true
                 }
             }
             steps {
-                sh 'python Regression_test.py'
+                script {
+                    docker.image('akroneason123/strategy_test:2.0').inside('-v /var/jenkins_home/workspace/Eason_Regression_test') {
+                        sh 'python Regression_test.py'
+                    }
+                }
             }
         }
     }
