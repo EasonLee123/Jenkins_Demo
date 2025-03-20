@@ -51,11 +51,11 @@ pipeline {
                     // Run the Python script to process the Docker output
                     sh 'python /var/jenkins_home/workspace/Eason_Regression_test/Regression_test.py'
                 }
+            }
+        }
         post{
             always{
                 cleanWs()
-            }
-        }
             }
         }
     }
