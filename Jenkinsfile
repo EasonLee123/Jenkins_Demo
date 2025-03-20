@@ -22,7 +22,7 @@ pipeline {
         stage('Run Regression Test') {
             agent {
                 docker {
-                    image 'akroneason123/strategy_test:1.0'
+                    image 'akroneason123/strategy_test:2.0'
                     reuseNode true
                 }
             }
