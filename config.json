@@ -1,5 +1,5 @@
 {
-    "docker_image_name":"akroneason123/strategy_test:1.0",
+    "docker_image_name":"akroneason123/strategy_test:2.0",
     "test_case_dir": "input_file",
     "expected_results_dir": "expected_output",
     "results_dir": "results",
