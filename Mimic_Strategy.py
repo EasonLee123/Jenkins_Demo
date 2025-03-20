@@ -18,11 +18,12 @@ def process_input(input_data):
     return output_data
 def main():
     # Read input JSON from stdin
-    input_json = sys.stdin.read()
-    input_data = json.loads(input_json)
-    # Process the input data
-    output_data = process_input(input_data)
-    # Print the output JSON to stdout
-    print(json.dumps(output_data, indent=4))
+    # input_json = sys.stdin.read()
+    with open('input_file/testcase_001.json','r') as file:
+        input_data = json.loads(file)
+        # Process the input data
+        output_data = process_input(input_data)
+        # Print the output JSON to stdout
+        print(json.dumps(output_data, indent=4))
 if __name__ == '__main__':
     main()
