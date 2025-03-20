@@ -17,7 +17,6 @@ pipeline {
             steps {
                     sh 'python /var/jenkins_home/workspace/Eason_Regression_test/Regression_test.py'
                 }
-            }
         }
     }
 }
