@@ -20,7 +20,7 @@ def main():
     # Read input JSON from stdin
     # input_json = sys.stdin.read()
     with open('input_file/testcase_001.json','r') as file:
-        input_data = json.loads(file)
+        input_data = json.load(file)
         # Process the input data
         output_data = process_input(input_data)
         # Print the output JSON to stdout
