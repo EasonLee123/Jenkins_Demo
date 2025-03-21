@@ -54,7 +54,7 @@ pipeline {
 
                     // Run the Python script to process the Docker output
                     // sh 'python /var/jenkins_home/workspace/Eason_Regression_test/Regression_test.py'
-                    sh 'docker run --rm -v $(pwd):/workspace -w /workspace python:3.9 python /var/jenkins_home/workspace/Eason_Regression_test/Regression_test.py'
+                    sh 'docker run --rm -v $(pwd):/workspace -w /workspace python:3.9 python /workspace/Regression_test.py'
                 }
             }
         }
