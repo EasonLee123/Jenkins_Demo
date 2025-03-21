@@ -27,6 +27,10 @@
 // }
 pipeline {
     agent any
+    environment {
+        DOCKER_CLIENT_TIMEOUT = '300'
+        COMPOSE_HTTP_TIMEOUT = '300'
+    }
     stages {
         stage('Start Test') {
             steps {
